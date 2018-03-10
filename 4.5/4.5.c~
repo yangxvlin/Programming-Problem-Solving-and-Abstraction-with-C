@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+	int arr[100], num, i = 0, j = 0, k;
+	
+	while(int(scanf("%d ", &num)) != 4)
+	{
+		arr[i] = num;
+		i++;
+	}
+	
+	while(j <= i)
+	{
+		printf("%d: | ", arr[j]);
+		for(k = 0; k < arr[j]; ++k)
+			putchar('*');
+		putchar('\n
+	}
+}

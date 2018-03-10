@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int try_one_coin(int *cents, int coin) {
+	int number = 0;
+	while (*cents >= coin) {
+		number++;
+		*cents -= coin;
+	}
+	return number;
+}
+
+int round_to_5(int cents) {
+	int rounded, money = cents, multiple = cents / 5;
+	
+	if ((money - multiple * 5) < 3) {
+		money = multiple * 5;
+	}
+	else {
+		money = (multiple + 1) * 5 ;
+	}
+	
+	return money;
+}
+
+void print_changes(int cents) {
+	int money = cents, coin_used[6] = {50, 20, 10, 5, 2, 1}, i;
+	
+	printf("%d cents recived\n", cents);
+	for (i = 0; i < 6; i++) {
+		printf("%2d ", money);
+		printf(" = %d * %2d cents",
+			try_one_coin(&money, coin_used[i]), coin_used[i]);
+		printf(" + %2d cents left\n", money);
+	}
+	putchar('\n');
+}
+
+void round_test(int cents) {
+	printf("%2d cents is rounded to %d cents\n", cents, round_to_5(cents));
+}
+
+int main() {
+	print_changes(93);
+	print_changes(67);
+	print_changes(1);
+	print_changes(0);
+	round_test(8);
+	round_test(9);
+	round_test(10);
+	round_test(11);
+	round_test(12);
+}

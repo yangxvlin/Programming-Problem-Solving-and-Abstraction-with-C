@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int my_isupper(char character) {
+	if ((64 < character) && (character < 91)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+char my_tolower(char character) {
+	if (my_isupper(character)) {
+		return (character +=32);
+	}
+	else {
+		return character;
+	}
+}
+
+int my_test() {
+	char i, j;
+	for (i = 1; i<= 127; ++i) {
+		j = i;
+		printf("%d------------------------\n", j);
+		printf("my_implement: %c is upper: %d\nclib_implement: %d\n",
+			   j, my_isupper(j), isupper(j));
+		printf("my_implement: %c -> %c\nclib_implement: %c -> %c\n",
+			   j, my_tolower(j), i, tolower(j));
+		if (i == 0) {
+			break;
+		}
+	}
+	return 0;
+}
+
+int main() {
+	my_test();
+}

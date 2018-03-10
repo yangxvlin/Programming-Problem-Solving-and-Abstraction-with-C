@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int max_2_ints(int num_1, int num_2) {
+	int larger = num_1;
+	if (num_2 > num_1) {
+			larger = num_2;
+	}
+	return larger;
+}
+
+int max_4_ints()
+
+int main() {
+	printf("input 4 numbers: ");
+	int number_0, number_1, number_2, number_3, larger_0, larger_1, largest;
+	scanf("%d, %d, %d, %d", &number_0, &number_1, &number_2, &number_3);
+	larger_0 = max_2_ints(number_0, number_1);
+	larger_1 = max_2_ints(number_2, number_3);
+	largest = max_2_ints(larger_0, larger_1);
+	printf("the largest number among 4 numbers is %d\n", largest);
+}

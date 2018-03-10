@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int int_pow(int base, int power) {
+	int i, numtiple = 1;
+	for (i = 0;i < power; ++i) {
+		numtiple *= base;
+	}
+	return numtiple;
+}
+
+int main() {
+	int base, power;
+	printf("base = ");
+	scanf("%d", &base);
+	printf("power = ");
+	scanf("%d", &power);
+	printf("%d^%d = %d", base, power, int_pow(base, power));
+}
